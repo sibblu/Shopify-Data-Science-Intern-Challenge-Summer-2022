@@ -35,31 +35,26 @@ On Shopify, we have exactly 100 sneaker shops, and each of these shops sells onl
 
 <p>a. How many orders were shipped by Speedy Express in total?</p>
 <b>54</b>
-<p>
-<i>
-'''
+
+```
 SELECT COUNT(*) FROM Orders,Shippers 
 WHERE Orders.ShipperID = Shippers.ShipperID AND ShipperName = "Speedy Express";
-'''
-</i>
-</p>
+```
+
 <p>b. What is the last name of the employee with the most orders?</p>
 <b>Peacock</b>
-<p>
-<i>
-'''    
+
+```
 SELECT LastName FROM Employees, Orders WHERE Employees.EmployeeID = Orders.EmployeeID
 GROUP BY Orders.EmployeeID
 ORDER BY Count(Employees.EmployeeID) DESC
 LIMIT 1;
-'''
-</i>
-</p>
+```
+
 <p>c. What product was ordered the most by customers in Germany?</p>
 <b>Boston Crab Meat</b>
-<p>
-<i>
-'''
+
+```
 SELECT prod.ProductName, SUM(det.Quantity) as quan
 FROM Products prod JOIN OrderDetails det
 ON prod.ProductID = det.ProductID
@@ -71,6 +66,4 @@ WHERE cus.Country = 'Germany'
 GROUP BY prod.productName
 ORDER BY quan DESC
 LIMIT 1;
-'''    
-</i>
-</p>
+``` 
