@@ -12,7 +12,7 @@ On Shopify, we have exactly 100 sneaker shops, and each of these shops sells onl
     </li>
     <li><b>What metric would you report for this dataset? </b>
         <ul>
-        <li><i>After analysing and removing outliers, we get following: </i>
+        <li><i>After analysing and removing anomalies (details in jupyternotebook), we get following: </i>
             <li>Order values Mean: $302.5, Median: $284.0, Mode:$153</li>
             <li>amount_per_item values, Mean: $151.79, Median: $153.0, Mode: $153.0.</li>
             <li>total_items values, Mean:1.9947336439133077, Median:2.0, Mode:2</li>
