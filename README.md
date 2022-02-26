@@ -29,3 +29,38 @@ On Shopify, we have exactly 100 sneaker shops, and each of these shops sells onl
 
 </ol>
 
+<p><b>Question 2: For this question you’ll need to use SQL. <a href ="https://www.w3schools.com/SQL/TRYSQL.ASP?FILENAME=TRYSQL_SELECT_ALL"> Follow this link to access the data set required for the challenge. </a></b> Please use queries to answer the following questions. Paste your queries along with your final numerical answers below.</p>
+
+
+<p>a. How many orders were shipped by Speedy Express in total?</p>
+<b>54</b>
+<i>
+SELECT COUNT(*) FROM Orders,Shippers 
+WHERE Orders.ShipperID = Shippers.ShipperID AND ShipperName = "Speedy Express";
+</i>
+
+<p>b. What is the last name of the employee with the most orders?</p>
+<b>Peacock</b>
+<i>
+SELECT LastName FROM Employees, Orders WHERE Employees.EmployeeID = Orders.EmployeeID
+GROUP BY Orders.EmployeeID
+ORDER BY Count(Employees.EmployeeID) DESC
+LIMIT 1;
+</i>
+
+<p>c. What product was ordered the most by customers in Germany?</p>
+<b>Boston Crab Meat</b>
+
+<i>
+SELECT prod.ProductName, SUM(det.Quantity) as quan
+FROM Products prod JOIN OrderDetails det
+ON prod.ProductID = det.ProductID
+JOIN Orders Ord
+ON det.OrderID = Ord.OrderID
+JOIN Customers cus
+ON cus.customerID = Ord.customerID
+WHERE cus.Country = 'Germany'
+GROUP BY prod.productName
+ORDER BY quan DESC
+LIMIT 1;
+</i>
